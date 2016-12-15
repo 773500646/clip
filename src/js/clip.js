@@ -136,11 +136,11 @@ var drap=function(){
     }
     //图片拖拽放大缩小
     function eve(){
-        //初始化x坐标 //初始化y坐标
-        var initX=0,initY= 0,initBoo;
         var content=document.querySelector('#Mi_drop .Mi_drop_content');
         var positi=document.querySelector('#Mi_drop .Mi_drop_bg');
-
+        
+        //初始化x坐标 //初始化y坐标
+        var initX=0,initY= 0,initBoo;
         content.addEventListener('touchstart',touchstart,false)
         content.addEventListener('touchmove',touchmove,false);
         content.addEventListener('touchend',touchend,false)
