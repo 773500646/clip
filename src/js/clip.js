@@ -1,5 +1,6 @@
 /**
  * Created by Administrator on 2016/12/13.
+ * 司徒 2016.12.15
  */
 var drap=function(){
     var instantiated,
@@ -95,6 +96,8 @@ var drap=function(){
         plot.lineWidth=1;
         plot.strokeStyle='#ffffff';
         plot.strokeRect(autox,autoy,options.setw,options.seth);
+        plot.fill();
+        plot.closePath();
     }
     //选择、完成按钮事件
     function Btn(){
@@ -136,11 +139,11 @@ var drap=function(){
     }
     //图片拖拽放大缩小
     function eve(){
-        var content=document.querySelector('#Mi_drop .Mi_drop_content');
-        var positi=document.querySelector('#Mi_drop .Mi_drop_bg');
-        
         //初始化x坐标 //初始化y坐标
         var initX=0,initY= 0,initBoo;
+        var content=document.querySelector('#Mi_drop .Mi_drop_content');
+        var positi=document.querySelector('#Mi_drop .Mi_drop_bg');
+
         content.addEventListener('touchstart',touchstart,false)
         content.addEventListener('touchmove',touchmove,false);
         content.addEventListener('touchend',touchend,false)
