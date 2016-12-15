@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title></title>
-    <script type="text/javascript" src="js/clip.js"></script> 
+    <!--<script type="text/javascript" src="js/clip.js"></script> -->
 </head> 
 <body>
 	<style type="text/css">
@@ -52,13 +52,13 @@
         Czh.beginPath();
         Czh.globalCompositeOperation="destination-out";
         Czh.globalAlpha=1;
-        Czh.rect(autox,autoy,options.setw,options.seth);
+        Czh.fillRect(autox,autoy,options.setw,options.seth);
         Czh.fill();
         Czh.closePath();
 
-        Czh.globalCompositeOperation='source-over';
         Czh.beginPath();
-        Czh.lineWidth='1px';
+        Czh.globalCompositeOperation='source-over';
+        Czh.lineWidth=1;
         Czh.strokeStyle='#ffffff';
         Czh.strokeRect(autox,autoy,options.setw,options.seth);
         Czh.fill();
@@ -74,6 +74,7 @@
                 bfb:0.7317554240631163
             }
         }
+       
         var content=document.querySelector('#Mi_drop .Mi_drop_content');
         var positi=document.querySelector('#Mi_drop .Mi_drop_bg');
         content.addEventListener('touchstart',touchstart,false)
@@ -94,7 +95,6 @@
             }
         }
         function touchmove(ev){
-	    ev.preventDefault();
             group(ev);
             var event=ev.touches,eventlen=event.length;
             if(eventlen==1){
@@ -187,6 +187,7 @@
             file.click()
         },false)
         file.addEventListener('change',function(ev){
+            ev.preventDefault();
             var files=this.files[0];
             if(('FileReader' in window)){
                 var reader=new FileReader();
