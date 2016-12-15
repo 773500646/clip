@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title></title>
+    <script type="text/javascript" src="js/clip.js"></script>
+</head> 
+<body>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+        #Mi_drop{position:absolute;top:0;left:0;z-index:666;width:100%;height:100%;overflow:hidden;}
+        #Mi_drop .Mi_drop_content{width:100%;height:100%;position:relative;}
+        #Mi_drop .Mi_drop_content .Mi_drop_canvas{position:absolute;top:0;left:0;z-index:2;}
+        #Mi_drop .Mi_drop_content .Mi_drop_bg{width:100%;height:100%;position:absolute;top:0;left:0;z-index: -1;}
+        #Mi_drop .Mi_drop_btn{position:absolute;bottom:20px;width:100%;z-index:6;}
+        #Mi_drop .Mi_drop_btn button{width:60px;height:30px;border:0;border-radius:3px;color:#ffffff;font-size:14px;outline-width: 0px;}
+        #Mi_drop .Mi_drop_btn button:first-child{float:left;margin-left:20px;background:#f89119;}
+        #Mi_drop .Mi_drop_btn button.Mi_close{float:right;margin-right:20px;background:#35b345;}
+        #Mi_drop .Mi_drop_btn .Mi_file{width:60px;height:30px;position:absolute;left:20px;z-index:6;opacity:0;filter:alpha(opacity:0);}
+    </style>
+</body>
+</html>
+<script>
+  //单体
+  var cj=drap();
+  cj.clip({
+      w:document.documentElement.clientWidth||document.body.clientWidth,
+      h:document.documentElement.clientHeight||document.body.clientHeight,
+      setw:200,
+      seth:200,
+      callback:function(url,o){  
+          //url为base64码   o为裁剪图片x y轴坐标点与图片大小
+          document.body.innerHTML+='<img src="'+url+'">';
+          //close为关闭
+          cj.close();  
+      }
+  })
+</script>
