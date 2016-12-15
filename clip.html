@@ -95,6 +95,7 @@
             }
         }
         function touchmove(ev){
+	    ev.preventDefault();
             group(ev);
             var event=ev.touches,eventlen=event.length;
             if(eventlen==1){
